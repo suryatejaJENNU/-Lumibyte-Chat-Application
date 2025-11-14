@@ -6,7 +6,7 @@ node_modules/
 .pnp.js
 
 
-AnswerFeedback.js
+
 ChatInput.js
 ConfirmDialog.js
 Home.js
