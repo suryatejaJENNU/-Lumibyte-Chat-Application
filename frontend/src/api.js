@@ -1,5 +1,8 @@
 const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:5000/api";
 
+// Deployed backend URL:
+// "https://lumibyte-chat-application-backend.onrender.com/api"
+
 async function request(path, opts = {}) {
   const res = await fetch(`${API_BASE}${path}`, opts);
   if (!res.ok) {

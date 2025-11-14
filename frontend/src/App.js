@@ -108,15 +108,15 @@ function AppInner() {
           <div>
             <div
               className="text-2xl font-bold flex items-center"
-              style={{ color: "#6366F1" }}
+              
             >
               <button
                 onClick={() => setMobileOpen(true)}
-                className="md:hidden p-2 rounded hover:bg-gray-100"
+                className="md:hidden p-2 rounded hover:bg-gray-100 text-accent-500"
               >
                 <FiMenu />
               </button>
-              Lumibyte Chat
+            <span className="text-accent-500" >Lumibyte Chat</span> 
             </div>
             <div className="text-sm text-muted">Modern + minimal</div>
           </div>

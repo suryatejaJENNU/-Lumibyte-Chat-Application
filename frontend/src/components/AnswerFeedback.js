@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 import { postFeedback } from "../api";
 
 export default function AnswerFeedback({
@@ -12,7 +13,8 @@ export default function AnswerFeedback({
   const click = async (val) => {
     setFb(val);
     onFeedback && onFeedback(val);
-       if (sessionId && messageId) {
+
+    if (sessionId && messageId) {
       try {
         await postFeedback(sessionId, messageId, val);
       } catch (e) {
@@ -23,25 +25,32 @@ export default function AnswerFeedback({
 
   return (
     <div className="flex gap-2 mt-3">
+    
       <button
         onClick={() => click("like")}
-        className={`px-3 py-1 rounded ${
-          fb === "like"
-            ? "bg-accent-600 text-white"
-            : "bg-gray-100 dark:bg-gray-800"
-        }`}
+        className={`flex items-center gap-1 px-3 py-1 rounded transition 
+          ${
+            fb === "like"
+              ? "bg-green-600 text-white"      
+              : "bg-gray-100 dark:bg-gray-800" 
+          }`}
       >
-        👍 Like
+        <ThumbsUp className="w-4 h-4" />
+        Like
       </button>
+
+     
       <button
         onClick={() => click("dislike")}
-        className={`px-3 py-1 rounded ${
-          fb === "dislike"
-            ? "bg-red-600 text-white"
-            : "bg-gray-100 dark:bg-gray-800"
-        }`}
+        className={`flex items-center gap-1 px-3 py-1 rounded transition 
+          ${
+            fb === "dislike"
+              ? "bg-red-600 text-white"        
+              : "bg-gray-100 dark:bg-gray-800" 
+          }`}
       >
-        👎 Dislike
+        <ThumbsDown className="w-4 h-4" />
+        Dislike
       </button>
     </div>
   );
