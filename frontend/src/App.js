@@ -103,7 +103,36 @@ function AppInner() {
         user={{ name: "Suryateja Jennu", email: "suryateja@example.com" }}
       />
 
-   
+      <div className="flex-1 p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <div
+              className="text-2xl font-bold flex items-center"
+              style={{ color: "#6366F1" }}
+            >
+              <button
+                onClick={() => setMobileOpen(true)}
+                className="md:hidden p-2 rounded hover:bg-gray-100"
+              >
+                <FiMenu />
+              </button>
+              Lumibyte Chat
+            </div>
+            <div className="text-sm text-muted">Modern + minimal</div>
+          </div>
+          <ThemeToggle />
+        </div>
+
+        <div className="card h-[calc(100vh-120px)] overflow-hidden">
+          <Routes>
+            <Route path="/" element={<Home onNewChat={handleNewChat} />} />
+            <Route
+              path="/chat/:sessionId"
+              element={<ChatWindow onSessionChange={loadSessions} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
